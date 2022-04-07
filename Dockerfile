@@ -6,4 +6,9 @@ RUN yum -y install sssd && \
 
 COPY sssd.conf /conf/sssd.conf
 
-ENTRYPOINT ["/usr/sbin/sssd", "-c", "/conf/sssd.conf", "-i"]
+# backup sss_statedir
+RUN cp -r /var/lib/sss /sss_statedir
+
+COPY entrypoint.sh /
+
+ENTRYPOINT ["./entrypoint.sh"]
