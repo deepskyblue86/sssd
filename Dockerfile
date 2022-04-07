@@ -4,6 +4,6 @@ RUN yum -y install sssd && \
     yum clean all && \
     rm -rf /var/cache/yum
 
-COPY sssd.conf /etc/sssd/
+COPY sssd.conf /conf/sssd.conf
 
-ENTRYPOINT ["/usr/sbin/sssd", "-i"]
+ENTRYPOINT ["/usr/sbin/sssd", "-c", "/conf/sssd.conf", "-i"]
