@@ -1,4 +1,4 @@
-FROM amazonlinux:2
+FROM fedora:35
 
 LABEL usage="docker run -d --privileged --name sssd -v /etc:/etc:ro -v /var/lib/sss:/var/lib/sss ghcr.io/deepskyblue86/sssd:latest"
 
